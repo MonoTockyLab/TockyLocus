@@ -1,0 +1,18 @@
+Package: TockyLocus
+Title: Quantitative Method for Fluorescent Timer Reporters
+Version: 0.1.0
+Authors@R: c(person("Masahiro", "Ono", role = c("aut", "cre"),
+                     email = "monotockylab@gmail.com", comment = c(OCRID="0000-0002-9284-7326")))
+Author: Masahiro Ono [aut, cre]
+Maintainer: Masahiro Ono  <monotockylab@gmail.com>
+Description: This package provides quantitative analysis methods forFluorescent Timer data obtained by flow cytometry. Specifically it provides the quantitative analysis methods for trigonometric transformed data, Timer Angle.
+Depends: R (>= 4.2.0), utils, stats, graphics, grDevices, methods
+Imports: TockyPrep, ggplot2, ggridges, viridis, RColorBrewer, rlang
+Suggests: knitr, rmarkdown, KernSmooth
+VignetteBuilder: knitr
+License: Apache License 2.0
+URL: https://github.com/MonoTockyLab/TockyLocus, https://MonoTockyLab.github.io/TockyLocus
+BugReports: https://github.com/MonoTockyLab/TockyLocus/issues
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
