@@ -53,6 +53,14 @@ To optimally utilize this temporal information in single-cell analysis, we have 
 Normalized and **trigonometric-transformed** Timer fluorescence data offer opportunities to analyze *real-time* transcriptional activities and *cumulative* (historical) activities observed in the days leading up to the experimental analysis of cells, as demonstrated in our previous reports (@Bending2018JCB; @Bending2018EMBO).
 
 
+### 2-3 The Tocky Locus Approach
+
+The TockyLocus package offers quantitative methods through a data categorization approach using five Tocky loci: New, Persistent, Arrested, and two transitional regions, New-to-Persistent-transitioning (NPt) and Persistent-to-Arrested-transitioning (PAt), as defined by Timer Angle:
+
+![](assets/PlotTockyLocusLegend.png){width=60% align="center"}
+
+You may wonder why five loci are used, instead of other numbers such as three or nine. Our [recent paper](https://arxiv.org/abs/2411.09386) examined this data categorization approach, elucidating the effectiveness of the five-loci approach (@ono2024tockylocus).
+
 ![](assets/TockyLocus_logo.jpg){ width=60% align="center"} 
 ![](assets/MonoLab.jpg){ width=40% align="center"}
 
