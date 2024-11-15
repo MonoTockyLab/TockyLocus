@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   Introduction: Introduction.html
   TockyLocusAnalysis: TockyLocusAnalysis.html
-last_built: 2024-11-15T23:14Z
+last_built: 2024-11-15T23:48Z
 urls:
   reference: https://MonoTockyLab.github.io/TockyLocus/reference
   article: https://MonoTockyLab.github.io/TockyLocus/articles
