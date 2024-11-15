@@ -21,6 +21,7 @@
 #' @importFrom graphics locator rect par
 #' @importFrom grDevices dev.off
 #' @importFrom stats quantile
+#' @importClassesFrom TockyPrep TockyPrepData
 plot_tocky_locus <- function(x, file='PlotTockyLocus', n = 3, max_cell_number = 20000, viridis = FALSE, interactive = FALSE){
 
     if(!inherits(x, "TockyPrepData")){

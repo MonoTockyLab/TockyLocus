@@ -7,6 +7,7 @@
 #' cellcounttable <- cellcount_table(x, percentTimer = FALSE)
 #'}
 #' @keywords internal
+#' @importClassesFrom TockyPrep TockyPrepData
 
 cellcount_table <- function(x, percentTimer = TRUE) {
   sampletable <- x@sampledef$sampledef
@@ -52,6 +53,7 @@ cellcount_table <- function(x, percentTimer = TRUE) {
 #'}
 #' @keywords internal
 #' @importFrom stats sd
+#' @importClassesFrom TockyPrep TockyPrepData
 
 locus_mean <- function(x, sampledef = sampledef) {
     

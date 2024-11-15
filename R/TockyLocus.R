@@ -119,6 +119,7 @@ TockyLocus <- function(x){
 #' @import ggplot2
 #' @importFrom grDevices colorRampPalette
 #' @importFrom rlang sym
+#' @importClassesFrom TockyPrep TockyPrepData
 
 plotTockyLocus <- function(x, percentTimer = FALSE, group_order = NULL, locus_colours = NULL, group_colors = NULL, group_by = TRUE, p_adjust_method = 'fdr', ylim = NULL, stats = TRUE, verbose = TRUE){
     if(!inherits(x, "TockyPrepData")){
@@ -263,6 +264,7 @@ plotTockyLocus <- function(x, percentTimer = FALSE, group_order = NULL, locus_co
 #' }
 #' @importFrom stats aggregate p.adjust shapiro.test t.test wilcox.test sd
 #' @importFrom methods show
+#' @importClassesFrom TockyPrep TockyPrepData
 
 GetStatsTockyLocus <- function(x, percentTimer = FALSE, p_adjust_method = 'BH', method = "ASR", verbose = TRUE){
     
@@ -431,6 +433,7 @@ GetStatsTockyLocus <- function(x, percentTimer = FALSE, p_adjust_method = 'BH', 
 #' @export
 #' @importFrom stats setNames
 #' @importFrom rlang sym
+#' @importClassesFrom TockyPrep TockyPrepData
 plotAngleDensity <- function(x, alpha = 0.3, group_order = NULL, scale = 2, legend = FALSE){
     if (!inherits(x, "TockyPrepData")) {
         stop("Input must be a TockyPrepData object processed with the timer_transform function.", call. = FALSE)

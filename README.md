@@ -98,7 +98,7 @@ The distribution and modification are governed by the Apache License 2.0, which 
 
 If you use **TockyLocus** in your research, please cite:
 
-Masahiro Ono (2024). *TockyLocus: Quantitative Analysis Methods for Flow Cytometric Fluorescent Timer Data.* arXiv:2411.04111 [q-bio.QM]. Available at:[https://arxiv.org/abs/2411.04111](https://arxiv.org/abs/2411.04111).
+Masahiro Ono (2024). *TockyLocus: Quantitative Analysis Methods for Flow Cytometric Fluorescent Timer Data.* arXiv:2411.09386 [q-bio.QM]. Available at:[https://arxiv.org/abs/2411.04111](https://arxiv.org/abs/2411.09386).
 
 #### BibTeX Entry
 
@@ -107,8 +107,8 @@ Masahiro Ono (2024). *TockyLocus: Quantitative Analysis Methods for Flow Cytomet
     title={TockyLocus: Quantitative Analysis Methods for Flow Cytometric Fluorescent Timer Data},
     author={Masahiro Ono},
     year={2024},
-    journal={arXiv:2411.04111 [q-bio.QM]},
-    url={https://arxiv.org/abs/2411.04111},
+    journal={arXiv:2411.09386 [q-bio.QM]},
+    url={https://arxiv.org/abs/2411.09386},
 }
 ```
 

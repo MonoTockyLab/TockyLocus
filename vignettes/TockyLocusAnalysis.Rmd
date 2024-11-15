@@ -191,7 +191,7 @@ plotTockyLocus(x, group_by = FALSE,  verbose = FALSE)
 
 Your data is now ready for statistical testing and downstream analysis. For more information and detailed methodology, refer to our paper:
 
-Masahiro Ono (2024). *TockyLocus: Quantitative Analysis Methods for Flow Cytometric Fluorescent Timer Data.* arXiv:2411.04111 [q-bio.QM]. Available at:[https://arxiv.org/abs/2411.04111](https://arxiv.org/abs/2411.04111).
+Masahiro Ono (2024). *TockyLocus: Quantitative Analysis Methods for Flow Cytometric Fluorescent Timer Data.* arXiv:2411.09386 [q-bio.QM]. Available at:[https://arxiv.org/abs/2411.09386](https://arxiv.org/abs/2411.09386).
 
 
 ![](assets/MonoLab.jpg){width=40% align="center"} 
