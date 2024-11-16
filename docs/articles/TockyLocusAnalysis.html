@@ -61,7 +61,7 @@
                         <h4 data-toc-skip class="author">Dr. Masahiro
 Ono</h4>
             
-            <h4 data-toc-skip class="date">2024-11-15</h4>
+            <h4 data-toc-skip class="date">2024-11-16</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/MonoTockyLab/TockyLocus/blob/HEAD/vignettes/TockyLocusAnalysis.Rmd" class="external-link"><code>vignettes/TockyLocusAnalysis.Rmd</code></a></small>
       <div class="d-none name"><code>TockyLocusAnalysis.Rmd</code></div>
@@ -69,7 +69,7 @@ Ono</h4>
 
     
     
-<p><img src="assets/TockyLocus_bannar.png" style="width:100.0%" align="center"></p>
+<p><img src="assets%2FTockyLocus_bannar.png" style="width:100.0%" align="center"></p>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
@@ -200,17 +200,17 @@ ova/ OT-II system, and time course analysis was performed (<span class="citation
 <div class="section level4">
 <h4 id="execute-data-preprocessing-using-tockyprep">Execute data preprocessing using <strong>TockyPrep</strong>:<a class="anchor" aria-label="anchor" href="#execute-data-preprocessing-using-tockyprep"></a>
 </h4>
-<p><img src="assets/TockyPrep.png" style="width:50.0%" align="center"></p>
+<p><img src="assets%2FTockyPrep.png" style="width:50.0%" align="center"></p>
 <p>Define sample and negative control files using the
 <code>prep_tocky</code> function</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Preprocessing data</span></span>
-<span><span class="va">prep</span> <span class="op">&lt;-</span> <span class="fu">prep_tocky</span><span class="op">(</span>path <span class="op">=</span> <span class="va">file_path</span>, samplefile <span class="op">=</span> <span class="va">samplefiles</span>, negfile <span class="op">=</span> <span class="va">negfile</span>, interactive <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">prep</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://MonoTockyLab.github.io/TockyPrep/reference/prep_tocky.html" class="external-link">prep_tocky</a></span><span class="op">(</span>path <span class="op">=</span> <span class="va">file_path</span>, samplefile <span class="op">=</span> <span class="va">samplefiles</span>, negfile <span class="op">=</span> <span class="va">negfile</span>, interactive <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>The function <code>timer_transform</code> not only imports data but
 also normalize and transform Timer blue and red fluorescence data.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Normalizing and transforming data</span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">timer_transform</span><span class="op">(</span><span class="va">prep</span>, blue_channel <span class="op">=</span> <span class="st">'Timer.Blue'</span>, red_channel <span class="op">=</span> <span class="st">'Timer.Red'</span>, select <span class="op">=</span> <span class="cn">FALSE</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://MonoTockyLab.github.io/TockyPrep/reference/timer_transform.html" class="external-link">timer_transform</a></span><span class="op">(</span><span class="va">prep</span>, blue_channel <span class="op">=</span> <span class="st">'Timer.Blue'</span>, red_channel <span class="op">=</span> <span class="st">'Timer.Red'</span>, select <span class="op">=</span> <span class="cn">FALSE</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>Check the class of the transformed object:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
@@ -236,7 +236,7 @@ used as input into <code>sample_definition</code>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Normalizing and transforming data</span></span>
 <span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">sample_definition</span><span class="op">(</span><span class="va">x</span>, sample_definition <span class="op">=</span> <span class="va">sample_definition</span>, interactive <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://MonoTockyLab.github.io/TockyPrep/reference/sample_definition.html" class="external-link">sample_definition</a></span><span class="op">(</span><span class="va">x</span>, sample_definition <span class="op">=</span> <span class="va">sample_definition</span>, interactive <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, define sample grouping for effective visualization by
 using the <code>sample_definition</code> function with the
 <code>interactive = TRUE</code> option. This approach will generate a
@@ -316,13 +316,13 @@ paper:</p>
 <p>Masahiro Ono (2024). <em>TockyLocus: Quantitative Analysis Methods
 for Flow Cytometric Fluorescent Timer Data.</em> arXiv:2411.09386
 [q-bio.QM]. Available at:<a href="https://arxiv.org/abs/2411.09386" class="external-link">https://arxiv.org/abs/2411.09386</a>.</p>
-<p><img src="assets/MonoLab.jpg" style="width:40.0%" align="center"><img src="assets/TockyLocus_logo.jpg" style="width:70.0%" align="center"></p>
+<p><img src="assets%2FMonoLab.jpg" style="width:40.0%" align="center"><img src="assets%2FTockyLocus_logo.jpg" style="width:70.0%" align="center"></p>
 </div>
 </div>
 <div class="section level2">
 <h2 class="unnumbered" id="references">References:<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
 <div id="ref-Bending2018JCB" class="csl-entry">
 Bending, David, Paz Prieto Martı́n, Alina Paduraru, Catherine Ducker,
 Erik Marzaganov, Marie Laviron, Satsuki Kitano, Hitoshi Miyachi, Tessa
@@ -348,7 +348,7 @@ HTLV-1.”</span> <em>Discovery Immunology</em> 3 (1): kyae006. <a href="https:/
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer>

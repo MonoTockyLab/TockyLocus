@@ -156,7 +156,8 @@ plotTockyLocus <- function(x, percentTimer = FALSE, group_order = NULL, locus_co
     }
     if(!group_by & is.null(group_colors)){
         if (num_groups <= 8) {
-            group_colors <- brewer.pal(num_groups, "Set1")
+            group_colors <- brewer.pal(num_groups + 1, "Set1")
+            group_colors <- group_colors[1:num_groups]
         } else {
             group_colors <- colorRampPalette(brewer.pal(9, "Set1"))(num_groups)
         }
@@ -459,7 +460,8 @@ plotAngleDensity <- function(x, alpha = 0.3, group_order = NULL, scale = 2, lege
     
     if (num_groups > 1) {
         if (num_groups <= 8) {
-            colors <- brewer.pal(num_groups, "Set1")
+            colors <- brewer.pal(num_groups + 1, "Set1")
+            colors <- colors[1:num_groups]
         } else {
             colors <- colorRampPalette(brewer.pal(9, "Set1"))(num_groups)
         }
