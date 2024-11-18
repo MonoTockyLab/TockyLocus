@@ -61,7 +61,7 @@
                         <h4 data-toc-skip class="author">Dr. Masahiro
 Ono</h4>
             
-            <h4 data-toc-skip class="date">2024-11-16</h4>
+            <h4 data-toc-skip class="date">2024-11-17</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/MonoTockyLab/TockyLocus/blob/HEAD/vignettes/TockyLocusAnalysis.Rmd" class="external-link"><code>vignettes/TockyLocusAnalysis.Rmd</code></a></small>
       <div class="d-none name"><code>TockyLocusAnalysis.Rmd</code></div>
@@ -205,12 +205,12 @@ ova/ OT-II system, and time course analysis was performed (<span class="citation
 <code>prep_tocky</code> function</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Preprocessing data</span></span>
-<span><span class="va">prep</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://MonoTockyLab.github.io/TockyPrep/reference/prep_tocky.html" class="external-link">prep_tocky</a></span><span class="op">(</span>path <span class="op">=</span> <span class="va">file_path</span>, samplefile <span class="op">=</span> <span class="va">samplefiles</span>, negfile <span class="op">=</span> <span class="va">negfile</span>, interactive <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">prep</span> <span class="op">&lt;-</span> <span class="fu">prep_tocky</span><span class="op">(</span>path <span class="op">=</span> <span class="va">file_path</span>, samplefile <span class="op">=</span> <span class="va">samplefiles</span>, negfile <span class="op">=</span> <span class="va">negfile</span>, interactive <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>The function <code>timer_transform</code> not only imports data but
 also normalize and transform Timer blue and red fluorescence data.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Normalizing and transforming data</span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://MonoTockyLab.github.io/TockyPrep/reference/timer_transform.html" class="external-link">timer_transform</a></span><span class="op">(</span><span class="va">prep</span>, blue_channel <span class="op">=</span> <span class="st">'Timer.Blue'</span>, red_channel <span class="op">=</span> <span class="st">'Timer.Red'</span>, select <span class="op">=</span> <span class="cn">FALSE</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">timer_transform</span><span class="op">(</span><span class="va">prep</span>, blue_channel <span class="op">=</span> <span class="st">'Timer.Blue'</span>, red_channel <span class="op">=</span> <span class="st">'Timer.Red'</span>, select <span class="op">=</span> <span class="cn">FALSE</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>Check the class of the transformed object:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
@@ -236,7 +236,7 @@ used as input into <code>sample_definition</code>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Normalizing and transforming data</span></span>
 <span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://MonoTockyLab.github.io/TockyPrep/reference/sample_definition.html" class="external-link">sample_definition</a></span><span class="op">(</span><span class="va">x</span>, sample_definition <span class="op">=</span> <span class="va">sample_definition</span>, interactive <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">sample_definition</span><span class="op">(</span><span class="va">x</span>, sample_definition <span class="op">=</span> <span class="va">sample_definition</span>, interactive <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, define sample grouping for effective visualization by
 using the <code>sample_definition</code> function with the
 <code>interactive = TRUE</code> option. This approach will generate a
