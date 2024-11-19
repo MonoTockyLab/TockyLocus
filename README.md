@@ -20,7 +20,7 @@ Fluorescent Timer proteins uniquely alter their emission spectra over time, maki
 
 A significant advancement was made in 2018 when the Ono lab introduced **Tocky**, a novel concept for analyzing Fluorescent Timer data. This approach encompasses data normalization and transformation methods (see [Introduction](https://monotockylab.github.io/TockyPrep/articles/Introduction.html)). However, a computational implementation of this methodology was not yet available.
 
-The breakthrough in the anslysis of Fluorescent Timer data was the introduction of the polar coordinate, or trigonometric transformation of Timer fluorescence data, which produces the key variables: *Timer Angle* and *Timer Intensity*.
+The breakthrough in the analysis of Fluorescent Timer data was the introduction of the polar coordinate, or trigonometric transformation of Timer fluorescence data, which produces the key variables: *Timer Angle* and *Timer Intensity*.
 
 <img src="vignettes/assets/Angleconversion.jpg" align="center" width=40%>
 
