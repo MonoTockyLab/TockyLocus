@@ -118,11 +118,14 @@ plot_tocky_locus <- function(x, file='PlotTockyLocus', n = 3, max_cell_number = 
             tpdata <- X[[i]][,c("Red_log", "Blue_log")]
             colnames(tpdata) <- c('x','y')
           #
-           if(nrow(tpdata) > max_cell_number ){
-               logic <- sample(1:nrow(tpdata), max_cell_number)
-                tpdata  <-  tpdata[logic,]
-                angles <- X[[i]]$Angle[logic]
-            }
+          if(nrow(tpdata) > max_cell_number ){
+              logic <- sample(1:nrow(tpdata), max_cell_number)
+              tpdata  <-  tpdata[logic,]
+              angles <- X[[i]]$Angle[logic]
+          } else {
+              angles <- X[[i]]$Angle
+          }
+           
 #
               density  <-  Locus_to_colour(angles, viridis = viridis)
               title <- names(X)[i]

@@ -38,10 +38,10 @@ cellcount_table <- function(x, percentTimer = TRUE) {
   counts_df <- merge(counts_df, cell_counts, by = 'sample')
 
   if(percentTimer){
-      percentages<- counts_df[locus_levels] / rowSums(counts_df[locus_levels]) * 100
+      percentages<- counts_df[,locus_levels] / rowSums(counts_df[,locus_levels]) * 100
       
       }else{
-          percentages <- counts_df[locus_levels] / counts_df$cell_count * 100
+          percentages <- counts_df[,locus_levels] / counts_df$cell_count * 100
       }
   
 
