@@ -11,7 +11,7 @@
 
 <a href="https://monotockylab.github.io/TockyLocus/">
 
-<img src="vignettes/assets/TockyLocus_bannar.png" align="center"   width=100%>
+<img src="man/figures/TockyLocus_bannar.png" align="center"   width=100%>
 </a>
 
 
@@ -172,7 +172,7 @@ Dr Ono is the creator of **Tocky**, spanning both its transgenic reporter system
 </a>
 
 
-<img src="vignettes/assets/TockyLocus_logo.jpg" align="center"   width=80%>
+<img src="man/figures/TockyLocus_logo.jpg" align="center"   width=80%>
 
 
 

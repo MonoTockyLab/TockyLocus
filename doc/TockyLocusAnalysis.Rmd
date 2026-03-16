@@ -11,7 +11,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-![](assets/TockyLocus_bannar.png){width=100% align="center"} 
+![](man/figures/TockyLocus_bannar.png){width=100% align="center"} 
 
 
 ```{r setup, include=FALSE}
@@ -107,7 +107,7 @@ The dataset was derived from Nr4a3 Tocky T-cells. Briefly, T-cells from Nr4a3 To
 ### Execute data preprocessing using **TockyPrep**:
 
 
-![](assets/TockyPrep.png){width=50% align="center"} 
+![](man/figures/TockyPrep.png){width=50% align="center"} 
 
 Define sample and negative control files using the `prep_tocky` function
 
@@ -217,8 +217,8 @@ Ono M. *TockyLocus: quantitative analysis of flow cytometric fluorescent timer d
 </a>
 
 
-![](assets/MonoLab.jpg){width=40% align="center"} 
-![](assets/TockyLocus_logo.jpg){width=70% align="center"} 
+![](man/figures/MonoLab.jpg){width=40% align="center"} 
+![](man/figures/TockyLocus_logo.jpg){width=70% align="center"} 
 
 
 # References:

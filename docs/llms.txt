@@ -9,7 +9,7 @@
 
 [](https://monotockylab.github.io/TockyLocus/)
 
-![](articles/assets/TockyLocus_bannar.png)
+![](reference/figures/TockyLocus_bannar.png)
 
 **Author:** Dr. Masahiro Ono  
 **Date:** 16 March 2026
@@ -204,7 +204,7 @@ Homepage](reference/figures/MonoLab.jpg)](http://monotockylab.github.io)
 **Twitter**:
 [![Twitter](https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg)](https://twitter.com/MonoTockyLab)
 
-![](articles/assets/TockyLocus_logo.jpg)
+![](reference/figures/TockyLocus_logo.jpg)
 
 # Package index
 
