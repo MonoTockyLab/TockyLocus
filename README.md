@@ -1,6 +1,5 @@
 
-# TockyLocus: Quantitative Analysis Methods for Flow Cytometric Fluorescent Timer Data
-
+# TockyLocus: Quantitative Analysis of Flow Cytometric Fluorescent Timer Data
 
 <a href="https://monotockylab.github.io/TockyLocus/">
 
@@ -9,52 +8,59 @@
 
 
 **Author:** Dr. Masahiro Ono  
-**Date:** 14 November 2024
+**Date:** 16 March 2026
 
-## Introduction: Fluorescent Timer as Experimental Tool and Development of the Tocky Concept
+## Introduction
 
-### The potential of Fluorescent Timer proteins 
-Fluorescent Timer proteins uniquely alter their emission spectra over time, making them powerful tools for monitoring dynamic cellular processes. These proteins are pivotal for understanding the intricate temporal dynamics of cellular events. Despite their potential, analyzing Timer fluorescence data in flow cytometry is often hampered by variability in instrument settings and the lack of standardized data preprocessing methods.
+**TockyLocus** is an R package for biologically grounded, reproducible analysis of **Timer Angle** data from flow cytometric Fluorescent Timer experiments. Built to work downstream of **TockyPrep**, it implements the validated **five-locus Tocky Locus framework** for discretizing Timer Angle into interpretable transcriptional states, together with visualization and statistical analysis tools. 
 
-### Tocky: A Breakthrough in Fluorescent Timer Analysis
+## Why TockyLocus?
 
-A significant advancement was made in 2018 when the Ono lab introduced **Tocky**, a novel concept for analyzing Fluorescent Timer data. This approach encompasses data normalization and transformation methods (see [Introduction](https://monotockylab.github.io/TockyPrep/articles/Introduction.html)). However, a computational implementation of this methodology was not yet available.
+Fluorescent Timer proteins report transcriptional history through time-dependent maturation from blue to red fluorescence. After preprocessing and trigonometric transformation, Timer fluorescence can be represented by **Timer Angle** and **Timer Intensity**. However, Timer Angle is continuous and often highly skewed, making arbitrary gating, quadrant analysis, or MFI-based summaries insufficient for robust biological interpretation. TockyLocus addresses this by categorizing Timer Angle into biologically defined loci for quantitative comparison.
 
-The breakthrough in the anslysis of Fluorescent Timer data was the introduction of the polar coordinate, or trigonometric transformation of Timer fluorescence data, which produces the key variables: *Timer Angle* and *Timer Intensity*.
+## The Five Tocky Loci
 
-<img src="vignettes/assets/Angleconversion.jpg" align="center" width=40%>
+The default TockyLocus framework partitions Timer Angle into five biologically defined loci:
 
-However, to effectively use the approach, a dedicated computational tool was required to normalize and transform Timer fluorescence data. To address these challenges, we have recently developed the [**TockyPrep**](https://monotockylab.github.io/TockyPrep/) package. This R package provides a comprehensive suite of tools designed to automate the preprocessing, normalization, and trigonometric transformation of Timer fluorescence data. **TockyPrep** specifically addresses the normalization of immature and mature Timer fluorescence as a critical step for robust downstream analysis.
+- **New**: 0°  
+- **NP-t** (New-to-Persistent transitioning): >0° to 30°  
+- **Persistent**: >30° to 60°  
+- **PA-t** (Persistent-to-Arrested transitioning): >60° to <90°  
+- **Arrested**: 90°  
 
-<img src="vignettes/assets/TockyPrep.png" align="center" width=45%>
+These loci are anchored to key biological states. Very low Timer Angles correspond to newly expressing cells, angles around **45°** reflect sustained transcription, and angles near **90°** indicate historical expression without recent transcription. :contentReference[oaicite:8]{index=8}
 
-## TockyLocus: The R Package for Quantitative Analysis of Fluorescent Timer Data
+## Why Five Loci?
 
-<img src="vignettes/assets/TockyLocus_logo.jpg" align="center"   width=80%>
+In the published evaluation, categorization schemes from **3 to 7 loci** were compared using simulated and experimental datasets from **Nr4a3-Tocky** and **Foxp3-Tocky** systems. While four loci were minimally sufficient for robust detection, the **five-locus model** emerged as the most effective overall because it preserves the biologically important Persistent region around **45°** while maintaining strong statistical robustness. Excessive segmentation can create sparse bins and reduce interpretability, especially for lower cell numbers. :contentReference[oaicite:9]{index=9}
 
+## Workflow
 
-### Aim of the TockyLocus Package
+**TockyLocus** is designed to be used after preprocessing with [**TockyPrep**](https://monotockylab.github.io/TockyPrep/):
 
-The aim of the **TockyLocus** package is to standardize quantitative analysis and visualization techniques for flow cytometric Fluorescent Timer data. It focuses on data categorization using Timer Angle data, which represents the temporal maturation dynamics of Timer proteins.
+1. **Timer Thresholding** to define Timer-positive cells and exclude autofluorescence  
+2. **Timer Normalization** to correct blue/red channel bias  
+3. **Trigonometric Transformation** to generate **Timer Angle** and **Timer Intensity**  
+4. **Tocky Locus categorization** and downstream visualization/statistics in **TockyLocus** 
 
+## Main capabilities
 
-### Features of the TockyLocus Package
+TockyLocus provides:
 
-**Timer Data Categorization Method**: 
+1. **Data categorization** using the five Tocky loci  
+2. **QC visualization** of loci on Timer fluorescence plots  
+3. **Visualization of temporal dynamics** using locus-wise plots  
+4. **Visualization for group comparisons**  
+5. **Statistical analysis methods** for locus percentages :contentReference[oaicite:11]{index=11}
 
-- This feature enables quantitative analysis and effective visualization of Timer fluorescence dynamics. Precisely, Timer Angle data is categorized into the five loci. This allows quantitative analysis of cell dynamics across Timer loci, enabling effective visualization and statistical analysis.
-   
-<img src="vignettes/assets/PlotTockyLocusLegend.png" align="center"   width=60%>
+## Statistical analysis
 
+TockyLocus supports multiple approaches for analysing locus percentages, including:
 
-**Visualization Tools**: 
-
-- The package includes functions to visualize Tocky Locus.
-
-**Statistical Analysis Methods**:
-
-- Dedicated statistical methods are implemented for group-wise comparison of Tocky Locus data.
-
+- **Wilcoxon rank-sum / Mann–Whitney** tests
+- **Arcsine square root transformation** followed by parametric testing where appropriate
+- **Logit transformation** followed by parametric testing where appropriate
+- **Multiple testing correction**, with Benjamini–Hochberg FDR as the default approach.
 
 
 #### Availability
@@ -63,7 +69,7 @@ The aim of the **TockyLocus** package is to standardize quantitative analysis an
 
 Link to the repository: [TockyLocus on GitHub](https://github.com/MonoTockyLab/TockyLocus)
 
-## Getting Started with TockyLocus
+## Installation
 
 To begin using **TockyLocus**, install the package from GitHub using the following command:
 
@@ -76,103 +82,85 @@ devtools::install_github("MonoTockyLab/TockyLocus")
 
 The **TockyLocus** package documentation is available online:
 
+[![Documentation](https://img.shields.io/badge/docs-GitHub_Pages-blue.svg)](https://MonoTockyLab.github.io/TockyLocus/)
+
 - **Website**: [https://MonoTockyLab.github.io/TockyLocus/](https://MonoTockyLab.github.io/TockyLocus/)
 
-This site includes all the function reference manuals and vignettes (tutorials).
 
-In addition to the HTML manual pages, a PDF manual for the **TockyLocus** package is available. You can find it in the installed package directory under `doc/`, or you can access it directly from [GitHub](https://github.com/MonoTockyLab/TockyLocus/blob/main/inst/doc/TockyLocus_0.1.0.pdf).
+## Citation
 
-<br>
+If you use **TockyLocus** in your work, please cite:
 
-## Copyright, License, and Citation Guidelines
+Ono M. *TockyLocus: quantitative analysis of flow cytometric fluorescent timer data in Nr4a3-Tocky and Foxp3-Tocky mice*. **Biology Methods and Protocols**. 2025;10(1):bpaf060. [doi:10.1093/biomethods/bpaf060](https://academic.oup.com/biomethods/article/10/1/bpaf060/8251999). 
 
-### Copyright
+<a href="https://doi.org/10.1093/biomethods/bpaf060">
+  <img src="https://img.shields.io/badge/DOI-10.1093%2Fbiomethods%2Fbpaf060-blue?style=flat-square" alt="DOI: 10.1093/biomethods/bpaf060">
+</a>
 
-All code and original graphical content within the TockyPrep package, including anime-like characters and logos, are copyrighted by [Masahiro Ono](https://monotockylab.github.io/). 
-
-### License
-
-The distribution and modification are governed by the Apache License 2.0, which ensures that all users have the freedom to use and change the software in a way that respects the original authorship. See the [LICENSE](https://github.com/MonoTockyLab/TockyLocus/blob/main/LICENSE) file for more information.
-
-### Citing TockyLocus
-
-If you use **TockyLocus** in your research, please cite:
-
-Masahiro Ono (2024). *TockyLocus: Quantitative Analysis Methods for Flow Cytometric Fluorescent Timer Data.* arXiv:2411.09386 [q-bio.QM]. Available at:[https://arxiv.org/abs/2411.04111](https://arxiv.org/abs/2411.09386).
 
 #### BibTeX Entry
 
 ```bibtex
-@article{ono2024TockyLocus,
-    title={TockyLocus: Quantitative Analysis Methods for Flow Cytometric Fluorescent Timer Data},
-    author={Masahiro Ono},
-    year={2024},
-    journal={arXiv:2411.09386 [q-bio.QM]},
-    url={https://arxiv.org/abs/2411.09386},
+@article{10.1093/biomethods/bpaf060,
+    author = {Ono, Masahiro},
+    title = {TockyLocus: quantitative analysis of flow cytometric fluorescent timer data in Nr4a3-Tocky and Foxp3-Tocky mice},
+    journal = {Biology Methods and Protocols},
+    volume = {10},
+    number = {1},
+    pages = {bpaf060},
+    year = {2025},
+    month = {08},
+    issn = {2396-8923},
+    doi = {10.1093/biomethods/bpaf060},
+    url = {https://doi.org/10.1093/biomethods/bpaf060},
+    eprint = {https://academic.oup.com/biomethods/article-pdf/10/1/bpaf060/64249414/bpaf060.pdf},
 }
 ```
 
-#### Why Citation Is Important
-
-Citing software you've used is crucial for acknowledging contributions and ensuring reproducibility, which are critical for scientific progress.
-
-- Giving credit to the developers and researchers who have contributed to the tools you utilize respects and acknowledges their intellectual contributions.
-- Proper citations allow other researchers to access the same tools and versions, thus replicating and verifying your scientific results.
-
-Citations are integral to the scientific ecosystem; they help trace the evolution of ideas and enable others to build upon existing research.
-
-We kindly remind our users that **citing software is as important as citing academic articles in maintaining the integrity of the scientific record.**
-
-#### Further Resources
-
-For additional guidance on citation practices and maintaining research integrity, we recommend visiting the [Committee on Publication Ethics (COPE)](https://publicationethics.org/), which offers valuable resources and support for adhering to ethical practices in scholarly publishing.
 
 ## The Ono Lab (MonoTockyLab)
 
-<img src="vignettes/assets/MonoLab.jpg" alt="MonoTockyLab" align="center" width="40%">
+<img src="man/figures/MonoLab.jpg" alt="MonoTockyLab" align="center" width="40%">
 
-**The Masahiro Ono Lab (MonoTockyLab)** offers innovative approaches to analyzing omics and flow cytometric data. The lab is particularly well-known for their development of Timer-of-cell-kinetics-and-Activity (**Tocky**) and integrated analysis of immunological data using both experiments and computational analysis.
+**The Masahiro Ono Lab (MonoTockyLab)** develops experimental and computational approaches to study immune cell dynamics, with a particular focus on the temporal regulation of gene expression in T cells.
 
-**Principal Investigator**: Dr. Masahiro Ono, Reader in Immunology at Imperial College London.
+The lab is known for the development of **Tocky** (*Timer of cell kinetics and activity*), a platform that uses Fluorescent Timer proteins to analyse transcriptional and signalling dynamics *in vivo* at single-cell resolution. Our research integrates mouse genetics, immunology, flow cytometry, single-cell omics, and computational modelling.
 
-Dr. Ono is **the creator and developer of Tocky**. He innovated the transgenic and computational technologies that constitute Tocky.
+Current research directions include:
 
-In 2008, Dr. Ono initiated his pioneering transition from molecular immunology to becoming an **Integrated Experimental and Computational Immunologist**, demonstrating his visionary leadership and pioneering spirit in the development and application of multidimensional analysis and computational methods to address experimental and immunological problems. Tocky represents one of the fusion technologies that Dr. Ono has both created and developed.
+- cancer immunology and immunotherapy
+- temporal mechanisms of T cell activation, differentiation, and tolerance
+- **Foxp3 transcriptional dynamics** and their regulation in vivo
+- computational methods for time-resolved single-cell analysis, including **CanonicalTockySeq**
 
-Tocky employs the Fluorescent Timer protein to analyze the temporal dynamics of cell activities and development *in vivo*. His lab integrates molecular biology, immunology, and computational analysis to develop novel research tools, thereby enhancing the understanding of immune cell biology.
+**Principal Investigator**: Dr Masahiro Ono, Reader in Immunology at Imperial College London.
+
+Dr Ono is the creator of **Tocky**, spanning both its transgenic reporter systems and associated analytical frameworks.
+
+
 
 ## Contact and More
 
-
-**Email**: 
+**Email**:
 <a href="mailto:m.ono@imperial.ac.uk">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg" alt="Email" width="10%">
-
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Circle-icons-mail.svg" alt="Email" width="10%">
 </a>
-
 
 **Personal Homepage**:
 <a href="http://monotockylab.github.io">
-  <img src="vignettes/assets/MonoLab.jpg" alt="MonoTockyLab Homepage" align="center" width="30%"/>
+<img src="man/figures/MonoLab.jpg" alt="MonoTockyLab Homepage" align="center" width="30%"/>
 </a>
 
 **GitHub**:
 <a href="https://github.com/MonoTockyLab">
-  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" align="center" width="70" height="70"/>
+<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" align="center" width="70" height="70"/>
 </a>
 
 **Twitter**:
 <a href="https://twitter.com/MonoTockyLab">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter" align="center" width="50" height="50"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Logo_of_Twitter.svg" alt="Twitter" align="center" width="50" height="50"/>
 </a>
 
-**BlueSky**:
-<a href="https://bsky.app/profile/monotockylab.bsky.social">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Bluesky_Logo.svg" alt="Twitter" align="center" width="50" height="50"/>
-</a>
-
-
-**Professional Homepage**: [Imperial College London - Masahiro Ono](https://www.imperial.ac.uk/people/m.ono)
 
 <img src="vignettes/assets/TockyLocus_logo.jpg" align="center"   width=80%>
 

@@ -21,7 +21,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">TockyLocus</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +61,7 @@
                         <h4 data-toc-skip class="author">Dr. Masahiro
 Ono</h4>
             
-            <h4 data-toc-skip class="date">2024-11-27</h4>
+            <h4 data-toc-skip class="date">2026-03-16</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/MonoTockyLab/TockyLocus/blob/HEAD/vignettes/TockyLocusAnalysis.Rmd" class="external-link"><code>vignettes/TockyLocusAnalysis.Rmd</code></a></small>
       <div class="d-none name"><code>TockyLocusAnalysis.Rmd</code></div>
@@ -205,12 +205,12 @@ ova/ OT-II system, and time course analysis was performed (<span class="citation
 <code>prep_tocky</code> function</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Preprocessing data</span></span>
-<span><span class="va">prep</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://MonoTockyLab.github.io/TockyPrep/reference/prep_tocky.html" class="external-link">prep_tocky</a></span><span class="op">(</span>path <span class="op">=</span> <span class="va">file_path</span>, samplefile <span class="op">=</span> <span class="va">samplefiles</span>, negfile <span class="op">=</span> <span class="va">negfile</span>, interactive <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">prep</span> <span class="op">&lt;-</span> <span class="fu">prep_tocky</span><span class="op">(</span>path <span class="op">=</span> <span class="va">file_path</span>, samplefile <span class="op">=</span> <span class="va">samplefiles</span>, negfile <span class="op">=</span> <span class="va">negfile</span>, interactive <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>The function <code>timer_transform</code> not only imports data but
 also normalize and transform Timer blue and red fluorescence data.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Normalizing and transforming data</span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://MonoTockyLab.github.io/TockyPrep/reference/timer_transform.html" class="external-link">timer_transform</a></span><span class="op">(</span><span class="va">prep</span>, blue_channel <span class="op">=</span> <span class="st">'Timer.Blue'</span>, red_channel <span class="op">=</span> <span class="st">'Timer.Red'</span>, select <span class="op">=</span> <span class="cn">FALSE</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">timer_transform</span><span class="op">(</span><span class="va">prep</span>, blue_channel <span class="op">=</span> <span class="st">'Timer.Blue'</span>, red_channel <span class="op">=</span> <span class="st">'Timer.Red'</span>, select <span class="op">=</span> <span class="cn">FALSE</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>Check the class of the transformed object:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
@@ -236,7 +236,7 @@ used as input into <code>sample_definition</code>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Normalizing and transforming data</span></span>
 <span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://MonoTockyLab.github.io/TockyPrep/reference/sample_definition.html" class="external-link">sample_definition</a></span><span class="op">(</span><span class="va">x</span>, sample_definition <span class="op">=</span> <span class="va">sample_definition</span>, interactive <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">sample_definition</span><span class="op">(</span><span class="va">x</span>, sample_definition <span class="op">=</span> <span class="va">sample_definition</span>, interactive <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p>Alternatively, define sample grouping for effective visualization by
 using the <code>sample_definition</code> function with the
 <code>interactive = TRUE</code> option. This approach will generate a
@@ -249,8 +249,8 @@ After editing, follow the prompts in the interactive session and press
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Visualizing the results</span></span>
 <span><span class="fu"><a href="../reference/plotAngleDensity.html">plotAngleDensity</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## Picking joint bandwidth of 1.9</span></span></code></pre>
-<p><img src="TockyLocusAnalysis_files/figure-html/plotAngleDensity-1.png" width="384"></p>
+<pre><code><span><span class="co">## Picking joint bandwidth of 2</span></span></code></pre>
+<p><img src="TockyLocusAnalysis_files/figure-html/plotAngleDensity-1.png" class="r-plt" alt="" width="384"></p>
 <p>The <code>plotAngleDensity</code> function offers preliminary
 insights into the dynamics of Timer fluorescence. However, this
 visualization method has certain limitations that will be discussed in
@@ -270,7 +270,7 @@ into five categories. To visually represent these categories, the
 schematic figure of the five Tocky Locus categories.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plotTockyLocusLegend.html">plotTockyLocusLegend</a></span><span class="op">(</span>mar_par <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="TockyLocusAnalysis_files/figure-html/PlotTockyLocusLegend-1.png" width="480"></p>
+<p><img src="TockyLocusAnalysis_files/figure-html/PlotTockyLocusLegend-1.png" class="r-plt" alt="" width="480"></p>
 <p>For quality checks of the Tocky Locus categorization, use the
 <code>plot_tocky_locus</code> function. The option <code>n = 4</code>
 specifies the number of columns in the multi-panel plot.</p>
@@ -281,7 +281,7 @@ specifies the number of columns in the multi-panel plot.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plot_tocky_locus.html">plot_tocky_locus</a></span><span class="op">(</span><span class="va">x</span>, n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## ..</span></span></code></pre>
-<p><img src="TockyLocusAnalysis_files/figure-html/plot_tocky_locus-1.png" width="768"></p>
+<p><img src="TockyLocusAnalysis_files/figure-html/plot_tocky_locus-1.png" class="r-plt" alt="" width="768"></p>
 <p>Note that the sample at 0 hours, taken before antigen stimulation,
 shows some pure red fluorescence. This phenomenon is due to the memory
 phenotype T-cells accumulated in vivo in OT-II Nr4a3 Tocky mice. These
@@ -299,13 +299,13 @@ data are based on the percentages within the parent population, which in
 this dataset, is CD4+ T cells.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plotTockyLocus.html">plotTockyLocus</a></span><span class="op">(</span><span class="va">x</span>, verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="TockyLocusAnalysis_files/figure-html/PlotTockyLocus-1.png" width="768"></p>
+<p><img src="TockyLocusAnalysis_files/figure-html/PlotTockyLocus-1.png" class="r-plt" alt="" width="768"></p>
 <p>If you prefer not to use faceting, employ the
 <code>group_by = FALSE</code> option to generate a Tocky Locus plot
 without multiple panels.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plotTockyLocus.html">plotTockyLocus</a></span><span class="op">(</span><span class="va">x</span>, group_by <span class="op">=</span> <span class="cn">FALSE</span>,  verbose <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="TockyLocusAnalysis_files/figure-html/PlotTockyLocus_Locus-1.png" width="576"></p>
+<p><img src="TockyLocusAnalysis_files/figure-html/PlotTockyLocus_Locus-1.png" class="r-plt" alt="" width="576"></p>
 </div>
 <div class="section level3">
 <h3 id="further-reading">Further Reading<a class="anchor" aria-label="anchor" href="#further-reading"></a>
@@ -348,7 +348,7 @@ HTLV-1.”</span> <em>Discovery Immunology</em> 3 (1): kyae006. <a href="https:/
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
