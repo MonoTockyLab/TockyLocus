@@ -11,14 +11,19 @@
 Source:
 [`inst/CITATION`](https://github.com/MonoTockyLab/TockyLocus/blob/HEAD/inst/CITATION)
 
-Masahiro Ono (2024). TockyLocus: Quantitative Analysis Methods for Flow
-Cytometric Fluorescent Timer Data. arXiv preprint arXiv:2411.09386
-\[q-bio.QM\]. Available at: https://arxiv.org/abs/2411.09386
+Ono, M. (2025). TockyLocus: quantitative analysis of flow cytometric
+fluorescent timer data in Nr4a3-Tocky and Foxp3-Tocky mice. Biology
+Methods and Protocols, 10(1), bpaf060.
+https://doi.org/10.1093/biomethods/bpaf060
 
-    @Manual{,
-      title = {TockyLocus: Quantitative Analysis Methods for Flow Cytometric Fluorescent Timer Data},
+    @Article{,
+      title = {TockyLocus: quantitative analysis of flow cytometric fluorescent timer data in Nr4a3-Tocky and Foxp3-Tocky mice},
       author = {Masahiro Ono},
-      year = {2024},
-      note = {arXiv preprint arXiv:2411.04111 [q-bio.QM]},
-      url = {https://arxiv.org/abs/2411.09386},
+      journal = {Biology Methods and Protocols},
+      year = {2025},
+      volume = {10},
+      number = {1},
+      pages = {bpaf060},
+      doi = {10.1093/biomethods/bpaf060},
+      url = {https://doi.org/10.1093/biomethods/bpaf060},
     }

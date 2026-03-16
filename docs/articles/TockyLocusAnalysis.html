@@ -21,7 +21,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">TockyLocus</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,32 +73,53 @@ Ono</h4>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<p>Fluorescent Timer proteins uniquely change their emission spectra
-over time and serve as powerful tools for monitoring the dynamic
-processes within cells. Our recent efforts have successfully implemented
-data preprocessing methods in the <strong>TockyPrep</strong> package.
-However, it is still challenging to analyze Timer fluorescence dynamics
-and apply quantitative and statistical analysis methods. To overcome
-these challenges, the <strong>TockyLocus</strong> package has been
-developed. This R package provides quantitative analysis methods,
-statistical methods, and visualization techniques dedicated for Timer
-fluorescence data analysis.</p>
+<p>Fluorescent Timer proteins undergo a time-dependent spectral shift
+from immature blue fluorescence to mature red fluorescence, making them
+powerful reporters for analysing dynamic transcriptional activity in
+living cells.</p>
+<p>Within the Tocky framework, Timer fluorescence is transformed into
+two derived variables: Timer Angle, which represents the relative
+maturation state of the Timer protein, and Timer Intensity, which
+reflects the overall amount of Timer protein. However, while Timer Angle
+provides an interpretable temporal axis, its continuous distribution
+presents challenges for quantitative analysis. Timer Angle values can be
+highly skewed, diffuse, or multimodal, making arbitrary gating and
+descriptive visualization insufficient for robust comparison across
+groups.</p>
+<p>The TockyLocus package addresses this problem by implementing the
+Tocky Locus approach: a biologically grounded categorization of Timer
+Angle into five loci that support reproducible visualization,
+quantification, and statistical analysis.</p>
 <div class="section level3">
 <h3 id="aim">Aim<a class="anchor" aria-label="anchor" href="#aim"></a>
 </h3>
-<p>The aim of the <strong>TockyLocus</strong> package is to standardize
-quantitative analysis and visualization techniques for flow cytometric
-Fluorescent Timer data. It focuses on data categorization using Timer
-Angle data, which represents the temporal maturation dynamics of Timer
-proteins.</p>
+<p>The aim of TockyLocus is to standardize the downstream analysis of
+Timer Angle data from flow cytometric Fluorescent Timer experiments. The
+package provides:</p>
+<ol style="list-style-type: decimal">
+<li>data categorization using the five Tocky loci</li>
+<li>visualization of Tocky loci in flow cytometric plots for quality
+control</li>
+<li>visualization of temporal dynamics using locus-wise plots</li>
+<li>visualization for group comparisons</li>
+<li>statistical analysis methods for Tocky Locus data</li>
+</ol>
 </div>
 <div class="section level3">
 <h3 id="relationship-to-the-package-tockyprep">Relationship to the package TockyPrep<a class="anchor" aria-label="anchor" href="#relationship-to-the-package-tockyprep"></a>
 </h3>
-<p>The <strong>TockyPrep</strong> package facilitates data preprocessing
-for flow cytometric Fluorescent Timer data. The
-<strong>TockyLocus</strong> package utilizes this preprocessed data to
-apply its advanced quantitative and visualization methods.</p>
+<p><strong>TockyPrep</strong> performs the preprocessing steps required
+for Timer fluorescence data:</p>
+<ul>
+<li>Timer Thresholding, to define Timer-positive cells and exclude
+autofluorescence</li>
+<li>Timer Normalization, to adjust Timer Blue and Timer Red fluorescence
+for comparability</li>
+<li>Trigonometric Transformation, to derive Timer Angle and Timer
+Intensity.</li>
+</ul>
+<p>The output is stored as a <code>TockyDataPrep</code> object, which
+can then be analysed by TockyLocus.</p>
 </div>
 <div class="section level3">
 <h3 id="getting-started-with-tockylocus">Getting Started with <strong>TockyLocus</strong><a class="anchor" aria-label="anchor" href="#getting-started-with-tockylocus"></a>
@@ -313,9 +334,11 @@ without multiple panels.</p>
 <p>Your data is now ready for statistical testing and downstream
 analysis. For more information and detailed methodology, refer to our
 paper:</p>
-<p>Masahiro Ono (2024). <em>TockyLocus: Quantitative Analysis Methods
-for Flow Cytometric Fluorescent Timer Data.</em> arXiv:2411.09386
-[q-bio.QM]. Available at:<a href="https://arxiv.org/abs/2411.09386" class="external-link">https://arxiv.org/abs/2411.09386</a>.</p>
+<p>Ono M. <em>TockyLocus: quantitative analysis of flow cytometric
+fluorescent timer data in Nr4a3-Tocky and Foxp3-Tocky mice</em>.
+<strong>Biology Methods and Protocols</strong>. 2025;10(1):bpaf060. <a href="https://academic.oup.com/biomethods/article/10/1/bpaf060/8251999" class="external-link">doi:10.1093/biomethods/bpaf060</a>.</p>
+<p><a href="https://doi.org/10.1093/biomethods/bpaf060" class="external-link">
+<img src="https://img.shields.io/badge/DOI-10.1093%2Fbiomethods%2Fbpaf060-blue?style=flat-square" alt="DOI: 10.1093/biomethods/bpaf060"></a></p>
 <p><img src="assets/MonoLab.jpg" style="width:40.0%" align="center"><img src="assets/TockyLocus_logo.jpg" style="width:70.0%" align="center"></p>
 </div>
 </div>

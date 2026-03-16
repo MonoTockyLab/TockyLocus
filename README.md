@@ -1,6 +1,14 @@
 
 # TockyLocus: Quantitative Analysis of Flow Cytometric Fluorescent Timer Data
 
+[![Documentation](https://img.shields.io/badge/docs-GitHub_Pages-blue.svg)](https://MonoTockyLab.github.io/TockyLocus/)
+
+[![DOI](https://zenodo.org/badge/888613944.svg)](https://doi.org/10.5281/zenodo.19057811)
+
+<a href="https://doi.org/10.1093/biomethods/bpaf060">
+  <img src="https://img.shields.io/badge/DOI-10.1093%2Fbiomethods%2Fbpaf060-blue?style=flat-square" alt="DOI: 10.1093/biomethods/bpaf060">
+</a>
+
 <a href="https://monotockylab.github.io/TockyLocus/">
 
 <img src="vignettes/assets/TockyLocus_bannar.png" align="center"   width=100%>
@@ -97,25 +105,27 @@ Ono M. *TockyLocus: quantitative analysis of flow cytometric fluorescent timer d
   <img src="https://img.shields.io/badge/DOI-10.1093%2Fbiomethods%2Fbpaf060-blue?style=flat-square" alt="DOI: 10.1093/biomethods/bpaf060">
 </a>
 
-
 #### BibTeX Entry
 
 ```bibtex
-@article{10.1093/biomethods/bpaf060,
-    author = {Ono, Masahiro},
+  @Article{,
     title = {TockyLocus: quantitative analysis of flow cytometric fluorescent timer data in Nr4a3-Tocky and Foxp3-Tocky mice},
+    author = {Masahiro Ono},
     journal = {Biology Methods and Protocols},
+    year = {2025},
     volume = {10},
     number = {1},
     pages = {bpaf060},
-    year = {2025},
-    month = {08},
-    issn = {2396-8923},
     doi = {10.1093/biomethods/bpaf060},
     url = {https://doi.org/10.1093/biomethods/bpaf060},
-    eprint = {https://academic.oup.com/biomethods/article-pdf/10/1/bpaf060/64249414/bpaf060.pdf},
-}
+  }
 ```
+
+### R package
+
+You can cite the specific release of this software via its Zenodo DOI: 
+
+[![DOI](https://zenodo.org/badge/888613944.svg)](https://doi.org/10.5281/zenodo.19057811)
 
 
 ## The Ono Lab (MonoTockyLab)

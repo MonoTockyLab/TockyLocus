@@ -1,6 +1,6 @@
 Package: TockyLocus
 Title: Quantitative Method for Fluorescent Timer Reporters
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(person("Masahiro", "Ono", role = c("aut", "cre"),
                      email = "monotockylab@gmail.com", comment = c(OCRID="0000-0002-9284-7326")))
 Author: Masahiro Ono [aut, cre]

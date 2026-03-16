@@ -4,29 +4,52 @@
 
 ## Introduction
 
-Fluorescent Timer proteins uniquely change their emission spectra over
-time and serve as powerful tools for monitoring the dynamic processes
-within cells. Our recent efforts have successfully implemented data
-preprocessing methods in the **TockyPrep** package. However, it is still
-challenging to analyze Timer fluorescence dynamics and apply
-quantitative and statistical analysis methods. To overcome these
-challenges, the **TockyLocus** package has been developed. This R
-package provides quantitative analysis methods, statistical methods, and
-visualization techniques dedicated for Timer fluorescence data analysis.
+Fluorescent Timer proteins undergo a time-dependent spectral shift from
+immature blue fluorescence to mature red fluorescence, making them
+powerful reporters for analysing dynamic transcriptional activity in
+living cells.
+
+Within the Tocky framework, Timer fluorescence is transformed into two
+derived variables: Timer Angle, which represents the relative maturation
+state of the Timer protein, and Timer Intensity, which reflects the
+overall amount of Timer protein. However, while Timer Angle provides an
+interpretable temporal axis, its continuous distribution presents
+challenges for quantitative analysis. Timer Angle values can be highly
+skewed, diffuse, or multimodal, making arbitrary gating and descriptive
+visualization insufficient for robust comparison across groups.
+
+The TockyLocus package addresses this problem by implementing the Tocky
+Locus approach: a biologically grounded categorization of Timer Angle
+into five loci that support reproducible visualization, quantification,
+and statistical analysis.
 
 ### Aim
 
-The aim of the **TockyLocus** package is to standardize quantitative
-analysis and visualization techniques for flow cytometric Fluorescent
-Timer data. It focuses on data categorization using Timer Angle data,
-which represents the temporal maturation dynamics of Timer proteins.
+The aim of TockyLocus is to standardize the downstream analysis of Timer
+Angle data from flow cytometric Fluorescent Timer experiments. The
+package provides:
+
+1.  data categorization using the five Tocky loci
+2.  visualization of Tocky loci in flow cytometric plots for quality
+    control
+3.  visualization of temporal dynamics using locus-wise plots
+4.  visualization for group comparisons
+5.  statistical analysis methods for Tocky Locus data
 
 ### Relationship to the package TockyPrep
 
-The **TockyPrep** package facilitates data preprocessing for flow
-cytometric Fluorescent Timer data. The **TockyLocus** package utilizes
-this preprocessed data to apply its advanced quantitative and
-visualization methods.
+**TockyPrep** performs the preprocessing steps required for Timer
+fluorescence data:
+
+- Timer Thresholding, to define Timer-positive cells and exclude
+  autofluorescence
+- Timer Normalization, to adjust Timer Blue and Timer Red fluorescence
+  for comparability
+- Trigonometric Transformation, to derive Timer Angle and Timer
+  Intensity.
+
+The output is stored as a `TockyDataPrep` object, which can then be
+analysed by TockyLocus.
 
 ### Getting Started with **TockyLocus**
 
@@ -234,9 +257,13 @@ plotTockyLocus(x, group_by = FALSE,  verbose = FALSE)
 Your data is now ready for statistical testing and downstream analysis.
 For more information and detailed methodology, refer to our paper:
 
-Masahiro Ono (2024). *TockyLocus: Quantitative Analysis Methods for Flow
-Cytometric Fluorescent Timer Data.* arXiv:2411.09386 \[q-bio.QM\].
-Available at:<https://arxiv.org/abs/2411.09386>.
+Ono M. *TockyLocus: quantitative analysis of flow cytometric fluorescent
+timer data in Nr4a3-Tocky and Foxp3-Tocky mice*. **Biology Methods and
+Protocols**. 2025;10(1):bpaf060.
+[doi:10.1093/biomethods/bpaf060](https://academic.oup.com/biomethods/article/10/1/bpaf060/8251999).
+
+[![DOI:
+10.1093/biomethods/bpaf060](https://img.shields.io/badge/DOI-10.1093%2Fbiomethods%2Fbpaf060-blue?style=flat-square)](https://doi.org/10.1093/biomethods/bpaf060)
 
 ![](assets/MonoLab.jpg)![](assets/TockyLocus_logo.jpg)
 
